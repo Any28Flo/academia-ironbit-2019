@@ -13,7 +13,6 @@ Array.prototype.esplais = function( index , ...itemsToAdd){
  }
 
    return `${arrayFilter} , ${itemsToAdd}, ${arraySplice}`
-  //return newArray;
 };
 
 let numberArray = [ 1 ,2,3,4,5,6];
@@ -21,7 +20,6 @@ let array = [2,3,1]
 console.log(numberArray.esplais(2, array));
 
 function XO(str) {
-    //code here
     let x = "x"
   console.log((str.split("")).map(element =>{
     element.toLowerCase();

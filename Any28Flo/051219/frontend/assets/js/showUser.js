@@ -38,17 +38,15 @@ const printUsers = jsonData =>{
     let userContainer = document.querySelector("#users");
     let html ="";    
     for(let user of jsonData){
-           html += `<div>`
-            html += `<div class="card col-12" data-card-name="${user.firstName}">`;
-            html += `<div class="card-body"> `
-                html += `<h5 class= "card-title">${user.firstName} ${user.lastName} </h5>`
-                html += `<p class= "card-text">User Name : ${user.userName} </p>`
-            html += `</div> `
-            html+= `  <a href="#" class="btn btn-primary">Delete</a>`
-            html += `</div>`
-           html += `</div>`
-        //  });
-
+           html += `<div>
+                        <div class="card col-12" data-card-name="${user.firstName}">
+                            <div class="card-body"> 
+                                <h5 class= "card-title">${user.firstName} ${user.lastName} </h5>
+                                <p class= "card-text">User Name : ${user.userName} </p>
+                            </div> 
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>`
     }
     userContainer.innerHTML =html ; 
 }
