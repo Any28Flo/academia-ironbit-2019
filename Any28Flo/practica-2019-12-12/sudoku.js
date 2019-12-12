@@ -21,11 +21,19 @@ const test2 = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ]
 function sudoku (array){
-    let findDuplicates = array => array.filter((item,index) => array.indexOf(item) !=index);
-    if(findDuplicates ===[]){
-        return false;
-    }else{
-        return true;
-    }
+     let findDuplicates = array => array.filter((item,index) => array.indexOf(item) !=index);
+ 
+   for(let x = 0 ; x<array.length ; x++){
+       if(x<=2){
+        for(let y = 0 ; y< array.length ; y++){
+            if(y<=2){
+                console.log(array[x][y]);
+            }
+           }
+       }
+       
+       console.log("\n")
+
+   }
 }
 console.log(sudoku(test1));
