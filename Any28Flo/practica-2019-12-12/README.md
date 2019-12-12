@@ -1,3 +1,3 @@
 # UML 
 
-![UML Diagram](./src/img/umlDiagram.png)
+![UML Diagram](./src/img/umlDiagram.pdf)
