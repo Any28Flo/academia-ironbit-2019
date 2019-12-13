@@ -1,6 +1,5 @@
-const urlUser ="http://localhost:3000/users/"
+const urlUser ="http://localhost:3000/users"
 const addUser = document.getElementById("createUser");
-
 //Async ensures that the function returns a promise
 //and wraps non-promises in it.
 const makeRequest = async (urlUser)  =>{
@@ -17,10 +16,10 @@ const makeRequest = async (urlUser)  =>{
    
 }
 const addUserToDB = ()=>{    
-    let firstName= $("#nameUser");
-    let nick = $("#nickName");
+    let firstName= document.getElementById("nameUser").value;
     let lastName ="Glz";
-    let userName = nick[0].value;
+    let nick = $("#nickName");
+    let nickName = nick[0].value;
     let password = "dfadfsadfss";
     (async () => {
         const rawResponse = await fetch(urlUser, {
@@ -29,9 +28,10 @@ const addUserToDB = ()=>{
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({id:1, firstName: firstName, lastName: lastName , userName : userName , password : password})
+          body: JSON.stringify({ id :3, firstName : firstName , lastName : lastName , nickName : nickName , password : password})
         });
         const content = await rawResponse.json();
+      
     })();
 }
 const printUsers = jsonData =>{
@@ -42,15 +42,16 @@ const printUsers = jsonData =>{
                         <div class="card col-12" data-card-name="${user.firstName}">
                             <div class="card-body"> 
                                 <h5 class= "card-title">${user.firstName} ${user.lastName} </h5>
-                                <p class= "card-text">User Name : ${user.userName} </p>
+                                <p class= "card-text">User Name : ${user.nickName} </p>
                             </div> 
                             <a href="#" class="btn btn-primary">Delete</a>
                         </div>
                     </div>`
     }
     userContainer.innerHTML =html ; 
+    id++;
 }
 
 makeRequest(urlUser);
-  
+let id= 1;
 addUser.onclick = addUserToDB;

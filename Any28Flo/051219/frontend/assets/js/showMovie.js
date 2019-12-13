@@ -19,8 +19,6 @@ const printMovies = async function(){
     for (const element of movieList) {
         let container = document.createElement('div');
         container.classList.add("carousel-item");
-        //container.classList(" mt-5")
-
         container.innerHTML = `
         <img src="${element.poster}" class="d-block w-100" alt="">
         <div class="carousel-caption d-none d-md-block">

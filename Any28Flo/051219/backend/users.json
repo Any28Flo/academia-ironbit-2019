@@ -3,23 +3,27 @@
     {
       "firstName": "Analin",
       "lastName": "Flores",
-      "userName": "Any",
+      "nickName": "Any",
       "password": "afdsfas"
     },
     {
       "firstName": "Antonio",
       "lastName": "Gonza",
-      "userName": "Antonio",
+      "nickName": "Ant",
       "password": "5599a"
     },
     {
-      "id": 1,
-      "firstName": {
-        "0": {},
-        "length": 1
-      },
+      "id": 2,
+      "firstName": "fdgdfg",
       "lastName": "Glz",
-      "userName": "afsdfsad",
+      "nickName": "sgdfg",
+      "password": "dfadfsadfss"
+    },
+    {
+      "id": 3,
+      "firstName": "dfdasf",
+      "lastName": "Glz",
+      "nickName": "dsfsd",
       "password": "dfadfsadfss"
     }
   ]
