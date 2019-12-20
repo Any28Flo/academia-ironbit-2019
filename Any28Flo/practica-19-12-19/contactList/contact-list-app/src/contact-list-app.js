@@ -26,10 +26,10 @@ class ContactList extends LitElement {
     }
 
     firstUpdated() {
-      fetch('https://randomuser.me/api/?results=10')
-        .then(response => response.json())
-        .then(data => {
-          this.contacts = data.results.map(user => {
+      fetch('http://localhost:3000/results')
+        .then(data => data.json())
+        .then(data =>{
+         this.contacts =  data.map( user =>{
             return {
               name: user.name.first,
               lastName: user.name.last,
@@ -38,14 +38,16 @@ class ContactList extends LitElement {
               address: user.location.street.name,
               email: user.email,
               nss: user.id.value,
-              rfc: data.info.seed,
+              rfc: user.login.uuid,
               bloodType: 'o+',
-              curp: data.info.seed,
+              curp: user.login.uuid,
               image: user.picture.large,
               skills: []
-            };
-          });
-        });
+            }
+          })
+        })
+          
+      
     }
 
   render() {
@@ -104,7 +106,18 @@ class ContactList extends LitElement {
   }
 
   createContact(event) {
-    this.contacts = [...this.contacts, event.detail];
+    //const id = { id: (this.contacts.length +1)}
+    fetch('http://localhost:3000/results',{
+      headers:{ 'Content-Type': 'application/json'},
+      method : 'POST',
+      body: JSON.stringify( { ...{ id: (this.contacts.length +1)}, ...event.detail } )
+    }).then( res => this.contacts.push( res.json()))
+    .then(data => console.log(data))
+    //this.contacts = [...this.contacts, event.detail];
+  }
+
+  createUidRandom(){
+
   }
 
   changePage(event) {

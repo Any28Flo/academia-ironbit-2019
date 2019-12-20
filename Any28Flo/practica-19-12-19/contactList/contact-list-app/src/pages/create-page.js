@@ -13,14 +13,14 @@ class CreatePage extends PageDM {
     render() {
       return html`
       <section class="container">
-        <contact-form @register-contact-request="${this.createContact}"></contact-form>
+        <contact-form @register-contact-request="${this.createContact}" ></contact-form>
       </section>
     `;
     }
 
     createContact(event) {
       this.dispatchEvent(new CustomEvent('new-contact', {
-        detail: event.detail
+        detail: event.detail  
       }));
     }
 }
